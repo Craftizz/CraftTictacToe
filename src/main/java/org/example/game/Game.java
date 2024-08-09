@@ -5,18 +5,20 @@ import org.example.player.Symbol;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class Game {
 
     private final Board board;
-    private final Scanner input;
 
+
+
+//    private final Scanner input;
     private final Queue<Player> playerQueue;
+
 
     public Game(int boardSize) {
         this.board = new Board(boardSize);
-        this.input = new Scanner(System.in);
+//        this.input = new Scanner(System.in);
         this.playerQueue = new LinkedList<>();
 
         playerQueue.add(new Player(Symbol.CROSS));
@@ -25,40 +27,52 @@ public class Game {
 
     public void run() {
 
-        board.initialize();
-
         while (board.canMove()) {
 
             board.display();
-            requestMove();
+//            requestMove();
         }
     }
 
-    public void requestMove() {
+    private void visualize() {
 
-        final Player player = playerQueue.poll();
-
-        System.out.println("Player " + player.getMoveSymbol() + ", make a move.");
-
-        int move = input.nextInt();
-
-        while (!board.isValidMove(move)) {
-
-            System.out.println("Please make a valid move! Input again.");
-            move = input.nextInt();
-        }
-
-        board.placeMove(player, move);
-
-        if (board.hasWinner(player)) {
-
-            System.out.println("Player " + player.getMoveSymbol() + " has won the game!");
-
-            board.display();
-            board.endGame();
-        }
-        else {
-            playerQueue.add(player);
-        }
     }
+
+
+
+
+
+
+
+
+
+
+
+//    public void requestMove() {
+//
+//        final Player player = playerQueue.poll();
+//
+//        System.out.println("Player " + player.getMoveSymbol() + ", make a move.");
+//
+//        int move = input.nextInt();
+//
+//        while (!board.isValidMove(move)) {
+//
+//            System.out.println("Please make a valid move! Input again.");
+//            move = input.nextInt();
+//        }
+//
+//        board.placeMove(player, move);
+//
+//        if (board.hasWinner(player)) {
+//
+//            System.out.println("Player " + player.getMoveSymbol() + " has won the game!");
+//
+//            board.display();
+//            board.endGame();
+//        }
+//        else {
+//            playerQueue.add(player);
+//        }
+//    }
 }
