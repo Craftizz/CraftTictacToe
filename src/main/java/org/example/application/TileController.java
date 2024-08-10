@@ -33,8 +33,8 @@ public class TileController {
 
     public void placeMove(int row, int column) {
 
-        final Tile tile = tileModel.getTile(row, column);
-        final Player player = playerQueue.poll();
+        Tile tile = tileModel.getTile(row, column);
+        Player player = playerQueue.poll();
 
         if (tile.getSymbol() == Symbol.EMPTY) {
 
@@ -42,7 +42,82 @@ public class TileController {
             tileView.update(tile);
         }
 
-        playerQueue.add(player);
+        if (checkPattern(player)) {
+            System.out.println("Winner");
+        }
+        else {
+            playerQueue.add(player);
+        }
     }
 
+
+    private boolean checkPattern(Player player) {
+
+        Tile[][] board = tileModel.getBoard();
+        int boardSize = tileModel.getBoardSize();
+
+        /* Check Column */
+        for (int row = 0; row < boardSize; row++) {
+
+            int count = 0;
+
+            for (int column = 0; column < boardSize; column++) {
+                if (board[row][column].getSymbol() == player.getSymbol()) {
+
+                    count++;
+                }
+            }
+
+            if (count == boardSize) {
+                return true;
+            }
+        }
+
+        /* Check Rows */
+        for(int row = 0 ; row < boardSize; row++){
+
+            int count = 0;
+
+            for(int column = 0 ; column < boardSize; column++){
+
+                if (board[column][row].getSymbol() == player.getSymbol()) {
+
+                    count++;
+                }
+            }
+
+            if (count == boardSize) {
+                return true;
+            }
+        }
+
+        /* Check Diagonals */
+        int count = 0;
+
+        for(int row = 0 ; row < boardSize; row++){
+
+            if (board[row][row].getSymbol() == player.getSymbol()) {
+
+                count++;
+            }
+
+            if (count == boardSize) {
+                return true;
+            }
+        }
+
+        count = 0;
+
+        for (int row = 0 ; row < boardSize; row++) {
+            for (int  column = 0 ; column < boardSize; column++) {
+                if(row + column == boardSize - 1){
+                    if(board[row][column].getSymbol() == player.getSymbol()){
+                        count++;
+                    }
+                }
+            }
+        }
+
+        return count == boardSize;
+    }
 }

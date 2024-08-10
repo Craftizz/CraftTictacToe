@@ -23,7 +23,7 @@ public class TileView extends GridPane {
 
                 final Tile tile = board[row][column];
 
-                tile.setOnMouseClicked(mouseEvent -> tileController.placeMove(tile.getRow(), tile.getColumn()));
+                tile.setOnMouseClicked(_ -> tileController.placeMove(tile.getRow(), tile.getColumn()));
 
                 add(board[row][column], row, column);
             }
