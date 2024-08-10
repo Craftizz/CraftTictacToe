@@ -1,4 +1,4 @@
-package org.example.player;
+package org.example.game;
 
 public enum Symbol {
 
@@ -12,7 +12,7 @@ public enum Symbol {
         this.symbol = symbol;
     }
 
-    public String getSymbol() {
+    public String getTextSymbol() {
         return symbol;
     }
 

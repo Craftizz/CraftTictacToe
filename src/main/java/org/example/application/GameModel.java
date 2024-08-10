@@ -1,13 +1,13 @@
 package org.example.application;
 
-import org.example.player.Symbol;
+import org.example.game.Tile;
 
-public class TileModel {
+public class GameModel {
 
     private int boardSize;
     private Tile[][] board;
 
-    public TileModel(int boardSize) {
+    public GameModel(int boardSize) {
         this.boardSize = boardSize;
         this.board = new Tile[boardSize][boardSize];
 

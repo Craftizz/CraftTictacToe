@@ -1,4 +1,4 @@
-package org.example.player;
+package org.example.game;
 
 public class Player {
 

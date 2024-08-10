@@ -1,17 +1,19 @@
 package org.example.application;
 
-import javafx.scene.control.Button;
+import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
-import org.example.player.Symbol;
+import org.example.game.Tile;
 
 public class TileView extends GridPane {
 
-    private final TileController tileController;
+    private final GameController gameController;
 
     private Tile[][] board;
 
-    public TileView(TileController tileController) {
-        this.tileController = tileController;
+    public TileView(GameController gameController) {
+        this.gameController = gameController;
+
+        setPadding(new Insets(20, 20, 0, 20));
     }
 
     public void createTiles(int boardSize, Tile[][] board) {
@@ -23,7 +25,7 @@ public class TileView extends GridPane {
 
                 final Tile tile = board[row][column];
 
-                tile.setOnMouseClicked(_ -> tileController.placeMove(tile.getRow(), tile.getColumn()));
+                tile.setOnMouseClicked(_ -> gameController.placeMove(tile.getRow(), tile.getColumn()));
 
                 add(board[row][column], row, column);
             }
@@ -31,6 +33,6 @@ public class TileView extends GridPane {
     }
 
     public void update(Tile tile) {
-        tile.setText(tile.getSymbol().getSymbol());
+        tile.setText(tile.getSymbol().getTextSymbol());
     }
 }

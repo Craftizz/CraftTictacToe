@@ -1,7 +1,6 @@
-package org.example.application;
+package org.example.game;
 
 import javafx.scene.control.Button;
-import org.example.player.Symbol;
 
 public class Tile extends Button  {
 
