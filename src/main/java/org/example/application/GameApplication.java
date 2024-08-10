@@ -12,7 +12,14 @@ public class GameApplication extends Application {
         primaryStage.setTitle("TicTacToe");
 
         TileController tileController = new TileController();
+        tileController.initialize();
+
+
         Scene scene = new Scene(tileController.getView());
+
+
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }

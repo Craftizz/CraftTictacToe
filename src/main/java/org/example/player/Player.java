@@ -8,7 +8,7 @@ public class Player {
         this.moveSymbol = symbol;
     }
 
-    public Symbol getMoveSymbol() {
+    public Symbol getSymbol() {
         return this.moveSymbol;
     }
 }

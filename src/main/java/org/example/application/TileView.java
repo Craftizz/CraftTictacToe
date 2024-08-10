@@ -1,42 +1,36 @@
 package org.example.application;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import org.example.game.Tile;
+import org.example.player.Symbol;
 
 public class TileView extends GridPane {
 
-    private Button[][] tileButtons;
+    private final TileController tileController;
 
-    public TileView(TileModel model,
-                    TileInteractor interactor) {
+    private Tile[][] board;
 
-        int boardSize = model.getBoardSize();
+    public TileView(TileController tileController) {
+        this.tileController = tileController;
+    }
 
-        tileButtons = new Button[boardSize][boardSize];
+    public void createTiles(int boardSize, Tile[][] board) {
 
-        for(int row = 0 ; row < boardSize ; row++){
-            for(int column = 0 ; column < boardSize; column++){
+        this.board = board;
 
-                final Button tile = new Button();
+        for(int row = 0 ; row < boardSize ; row++) {
+            for (int column = 0; column < boardSize; column++) {
 
-                // set actionHandler
-                tile.setPrefSize(100, 100);
+                final Tile tile = board[row][column];
 
-                int currentRow = row;
-                int currentColumn = column;
+                tile.setOnMouseClicked(mouseEvent -> tileController.placeMove(tile.getRow(), tile.getColumn()));
 
-                tile.setOnMouseClicked(mouseEvent -> interactor.placeMove(currentRow, currentColumn));
-
-                add(tile, row, column);
-
-                tileButtons[row][column] = tile;
+                add(board[row][column], row, column);
             }
         }
     }
 
-    public void update(int row, int column, String text) {
-        tileButtons[row][column].setText(text);
+    public void update(Tile tile) {
+        tile.setText(tile.getSymbol().getSymbol());
     }
 }

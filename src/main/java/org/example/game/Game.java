@@ -8,43 +8,43 @@ import java.util.Queue;
 
 public class Game {
 
-    private final Board board;
-
-
-
-//    private final Scanner input;
-    private final Queue<Player> playerQueue;
-
-
-    public Game(int boardSize) {
-        this.board = new Board(boardSize);
-//        this.input = new Scanner(System.in);
-        this.playerQueue = new LinkedList<>();
-
-        playerQueue.add(new Player(Symbol.CROSS));
-        playerQueue.add(new Player(Symbol.ZERO));
-    }
-
-    public void run() {
-
-        while (board.canMove()) {
-
-            board.display();
-//            requestMove();
-        }
-    }
-
-    private void visualize() {
-
-    }
-
-
-
-
-
-
-
-
+//    private final Board board;
+//
+//
+//
+////    private final Scanner input;
+//    private final Queue<Player> playerQueue;
+//
+//
+//    public Game(int boardSize) {
+//        this.board = new Board(boardSize);
+////        this.input = new Scanner(System.in);
+//        this.playerQueue = new LinkedList<>();
+//
+//        playerQueue.add(new Player(Symbol.CROSS));
+//        playerQueue.add(new Player(Symbol.ZERO));
+//    }
+//
+//    public void run() {
+//
+//        while (board.canMove()) {
+//
+//            board.display();
+////            requestMove();
+//        }
+//    }
+//
+//    private void visualize() {
+//
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 

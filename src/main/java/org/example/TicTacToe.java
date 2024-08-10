@@ -2,7 +2,6 @@ package org.example;
 
 import javafx.application.Application;
 import org.example.application.GameApplication;
-import org.example.game.GameApplicationLegacy;
 
 public class TicTacToe {
 

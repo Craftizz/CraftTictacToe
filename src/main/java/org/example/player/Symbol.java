@@ -2,17 +2,17 @@ package org.example.player;
 
 public enum Symbol {
 
-    EMPTY('-'),
-    ZERO('O'),
-    CROSS('X');
+    EMPTY(" "),
+    ZERO("O"),
+    CROSS("X");
 
-    private char symbol;
+    private String symbol;
 
-    Symbol(char symbol) {
+    Symbol(String symbol) {
         this.symbol = symbol;
     }
 
-    public char getSymbol() {
+    public String getSymbol() {
         return symbol;
     }
 
