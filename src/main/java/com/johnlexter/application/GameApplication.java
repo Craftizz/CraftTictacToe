@@ -1,4 +1,4 @@
-package org.example.application;
+package com.johnlexter.application;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ public class GameApplication extends Application {
         primaryStage.setTitle("TicTacToe");
 
         GameController gameController = new GameController();
-        gameController.initialize();
+        gameController.createGame(3);
 
         Scene scene = new Scene(gameController.getView());
         primaryStage.setScene(scene);

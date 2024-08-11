@@ -1,4 +1,4 @@
-package org.example.game;
+package com.johnlexter.player;
 
 public class Player {
 
